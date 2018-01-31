@@ -20,7 +20,7 @@ import pub.devrel.easypermissions.EasyPermissions;
 
 public class MainActivity extends AppCompatActivity {
 
-    private static final int RC_VIDEO_APP_PERM = 4;
+    private static final int RC_CALL_APP_PERM = 4;
 
     private EditText code;
     private TextView response;
@@ -98,7 +98,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    @AfterPermissionGranted(RC_VIDEO_APP_PERM)
+    @AfterPermissionGranted(RC_CALL_APP_PERM)
     private void requestPermissions() {
         String[] perms = {  Manifest.permission.CALL_PHONE, Manifest.permission.BIND_ACCESSIBILITY_SERVICE };
         if (EasyPermissions.hasPermissions(this, perms)) {
@@ -107,7 +107,7 @@ public class MainActivity extends AppCompatActivity {
 
         } else {
             //if permission is denied
-            EasyPermissions.requestPermissions(this, "This app needs access to your Call Services", RC_VIDEO_APP_PERM, perms);
+            EasyPermissions.requestPermissions(this, "This app needs access to your Call Services", RC_CALL_APP_PERM, perms);
         }
     }
 
